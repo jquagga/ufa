@@ -1,4 +1,4 @@
-FROM debian:12-slim@sha256:d02c76d82364cedca16ba3ed6f9102406fa9fa8833076a609cabf14270f43dfc AS builder
+FROM debian:12-slim@sha256:ccb33c3ac5b02588fc1d9e4fc09b952e433d0c54d8618d0ee1afadf1f3cf2455 AS builder
 WORKDIR /app/git
 ARG TARGETPLATFORM
 RUN apt-get update && \
@@ -13,7 +13,7 @@ RUN dpkg-buildpackage -b --no-sign && rm ../piaware-dbgsym*
 WORKDIR /copydeb
 RUN cp /app/git/*.deb /copydeb 
 
-FROM debian:12-slim@sha256:d02c76d82364cedca16ba3ed6f9102406fa9fa8833076a609cabf14270f43dfc
+FROM debian:12-slim@sha256:ccb33c3ac5b02588fc1d9e4fc09b952e433d0c54d8618d0ee1afadf1f3cf2455
 WORKDIR /copydeb
 COPY --from=builder /copydeb /copydeb
 RUN apt-get update && apt-get install --no-install-recommends -y /copydeb/*.deb && rm /copydeb/*
