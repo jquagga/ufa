@@ -16,7 +16,7 @@ RUN export DEB_BUILD_OPTIONS=noautodbgsym && \
 # and puts it all in the /newroot directory to be copied over to the stage 2 image
 WORKDIR /dpkg
 RUN mv /app/git/*.deb  .
-RUN apt-get download -y --no-install-recommends $(apt-rdepends libboost-program-options1.74.0 libboost-regex1.74.0 zlib1g coreutils |grep -v "^ ") && \
+RUN apt-get download -y --no-install-recommends $(apt-rdepends libboost-program-options1.74.0 libboost-regex1.74.0 zlib1g coreutils libexpat1 |grep -v "^ ") && \
     apt-get download -y --no-install-recommends net-tools iproute2 tclx8.4 tcl8.6 tcllib tcl-tls itcl3 libtcl8.6 && \
     rm libc* libgcc* gcc* 
 WORKDIR /newroot
