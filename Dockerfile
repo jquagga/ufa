@@ -22,7 +22,7 @@ RUN apt-get download -y --no-install-recommends $(apt-rdepends libboost-program-
 WORKDIR /newroot
 RUN dpkg --unpack -R --force-all --root=/newroot /dpkg/
 
-FROM gcr.io/distroless/cc-debian12:nonroot@sha256:548d3e91231ffc84c1543da0b63e4063defc1f9620aa969e7f5abfafeb35afbe
+FROM gcr.io/distroless/cc-debian12:nonroot@sha256:992f8328b3145d361805d3143ab8ca5d84e30e3c17413758ccee9194ba6ca0dc
 COPY --from=builder /newroot /
 
 
