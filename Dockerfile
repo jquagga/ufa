@@ -1,4 +1,4 @@
-FROM debian:12-slim@sha256:dae9a7c8ede25fd063aeada9b83ad8d07450fcbfdedcac7633fd09da1ddb4b9d AS builder
+FROM debian:12-slim@sha256:9c8c90484c826a6fd4b354c2ec0a1bdfded51445aa0a0bc736ad5374b1531650 AS builder
 WORKDIR /app/git
 ARG TARGETPLATFORM
 RUN apt-get update && \
